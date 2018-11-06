@@ -10,26 +10,45 @@
 
 @implementation UltraPickerCloseBar
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if ((self = [super initWithFrame:frame])) {
+        [self myInit];
+    }
+    return self;
+}
 
+- (void)setCancelButtonText:(NSString *)cancelButtonText
+{
+    _cancelButtonText = cancelButtonText;
+    [self myInit];
+}
+
+- (void)setDoneButtonText:(NSString *)doneButtonText
+{
+    _doneButtonText = doneButtonText;
+    [self myInit];
+}
+
+- (void)myInit
+{
     UIBarButtonItem *barButtonCancel = [[UIBarButtonItem alloc] initWithTitle:self.cancelButtonText
-                                                                      style:UIBarButtonItemStylePlain
-                                                                     target:self
-                                                                     action:@selector(cancelTapped)];
-
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(cancelTapped)];
+    
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-
+    
     UIBarButtonItem *barButtonDone = [[UIBarButtonItem alloc] initWithTitle:self.doneButtonText
                                                                       style:UIBarButtonItemStyleDone
                                                                      target:self
                                                                      action:@selector(doneTapped)];
     self.items = @[barButtonCancel, flex, barButtonDone];
-
+    
     [self setBackgroundImage:[UIImage new]
           forToolbarPosition:UIToolbarPositionAny
                   barMetrics:UIBarMetricsDefault];
-
+    
     self.backgroundColor = [UIColor clearColor]; // set using the backgroundColor style in the react view
     self.clipsToBounds = YES; // removes the border. Again, use the view style in React to change this
 }
