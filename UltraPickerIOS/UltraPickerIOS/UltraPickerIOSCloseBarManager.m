@@ -24,9 +24,10 @@ RCT_EXPORT_MODULE();
     return view;
 }
 
-RCT_EXPORT_VIEW_PROPERTY(closeButtonText, NSString)
-RCT_EXPORT_VIEW_PROPERTY(onClose, RCTBubblingEventBlock)
-RCT_EXPORT_VIEW_PROPERTY(testID, NSString)
+RCT_EXPORT_VIEW_PROPERTY(cancelButtonText, NSString)
+RCT_EXPORT_VIEW_PROPERTY(doneButtonText, NSString)
+RCT_EXPORT_VIEW_PROPERTY(onCancel, RCTBubblingEventBlock)
+RCT_EXPORT_VIEW_PROPERTY(onDone, RCTBubblingEventBlock)
 
 
 @end

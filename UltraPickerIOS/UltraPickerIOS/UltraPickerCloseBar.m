@@ -10,16 +10,21 @@
 
 @implementation UltraPickerCloseBar
 
-- (void)setCloseButtonText:(NSString *)closeButtonText
-{
-    _closeButtonText = closeButtonText;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    UIBarButtonItem *barButtonCancel = [[UIBarButtonItem alloc] initWithTitle:self.cancelButtonText
+                                                                      style:UIBarButtonItemStylePlain
+                                                                     target:self
+                                                                     action:@selector(cancelTapped)];
+
     UIBarButtonItem *flex = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
 
-    UIBarButtonItem *barButtonDone = [[UIBarButtonItem alloc] initWithTitle:closeButtonText
+    UIBarButtonItem *barButtonDone = [[UIBarButtonItem alloc] initWithTitle:self.doneButtonText
                                                                       style:UIBarButtonItemStyleDone
                                                                      target:self
                                                                      action:@selector(doneTapped)];
-    self.items = @[flex, barButtonDone];
+    self.items = @[barButtonCancel, flex, barButtonDone];
 
     [self setBackgroundImage:[UIImage new]
           forToolbarPosition:UIToolbarPositionAny
@@ -29,16 +34,17 @@
     self.clipsToBounds = YES; // removes the border. Again, use the view style in React to change this
 }
 
-- (void) setTestID:(NSString *)testID
+- (void)cancelTapped
 {
-    _testID = testID;
-    self.accessibilityIdentifier = testID;
+    if (self.onCancel) {
+        self.onCancel(nil);
+    }
 }
 
 - (void)doneTapped
 {
-    if (self.onClose) {
-        self.onClose(nil);
+    if (self.onDone) {
+        self.onDone(nil);
     }
 }
 

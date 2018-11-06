@@ -22,7 +22,7 @@
     "@types/react-native": "^0.48.1",
     "react": "^16.0",
     "react-native": "^0.48.1",
-    "typescript": "^2.5"
+    "typescript": "^2.7"
   },
   "files": [
     "js",

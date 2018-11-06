@@ -131,10 +131,10 @@ var UltraPickerIOS = /** @class */ (function (_super) {
         this.setState(this._stateBasedOnProps(nextProps));
     };
     UltraPickerIOS.prototype.render = function () {
-        // Allow the caller to not specify any style yet make this component visible 
+        // Allow the caller to not specify any style yet make this component visible
         // via default heights. Adjust the size of `parentViewStyle` so that if there
-        // is a CloseBar provided, the picker is the same size as specified by 
-        // UltraPickerIOS.style and the parent (encapsulating) view is made larger 
+        // is a CloseBar provided, the picker is the same size as specified by
+        // UltraPickerIOS.style and the parent (encapsulating) view is made larger
         // to fit the CloseBar
         var pickerViewStyle = __assign({ height: DEFAULT_PICKER_HEIGHT }, react_native_1.StyleSheet.flatten(this.props.style));
         var parentViewStyle = __assign({}, pickerViewStyle);
@@ -155,8 +155,9 @@ var UltraPickerIOSCloseBar = /** @class */ (function (_super) {
     }
     UltraPickerIOSCloseBar.prototype.render = function () {
         var style = __assign({ height: DEFAULT_CLOSEBAR_HEIGHT }, react_native_1.StyleSheet.flatten(this.props.style));
-        var closeButtonText = this.props.closeButtonText || "Close";
-        return (React.createElement(UltraPickerIOSCloseBarNative, { style: style || this.props.style, closeButtonText: closeButtonText, onClose: this.props.onClose, buttonTestID: this.props.buttonTestID }));
+        var cancelButtonText = this.props.cancelButtonText || "Cancel";
+        var doneButtonText = this.props.doneButtonText || "Done";
+        return (React.createElement(UltraPickerIOSCloseBarNative, { style: style || this.props.style, cancelButtonText: cancelButtonText, onCancel: this.props.onCancel, doneButtonText: doneButtonText, onDone: this.props.onDone }));
     };
     return UltraPickerIOSCloseBar;
 }(React.Component));

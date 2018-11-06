@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import * as React from 'react';
 import { ViewStyle } from 'react-native';
 export interface ComponentGroup {
@@ -35,10 +34,11 @@ export declare class UltraPickerIOS extends React.Component<UltraPickerIOSProps,
     render(): JSX.Element;
 }
 export interface UltraPickerIOSCloseBarProps {
-    closeButtonText?: string;
-    onClose?: (result: any) => void;
+    cancelButtonText?: string;
+    onCancel?: (result: any) => void;
+    doneButtonText?: string;
+    onDone?: (result: any) => void;
     style?: ViewStyle;
-    buttonTestID?: string;
 }
 export declare class UltraPickerIOSCloseBar extends React.Component<UltraPickerIOSCloseBarProps> {
     render(): JSX.Element;

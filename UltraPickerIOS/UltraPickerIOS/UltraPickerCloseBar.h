@@ -11,8 +11,10 @@
 
 @interface UltraPickerCloseBar : UIToolbar
 
-@property (nonatomic, copy) NSString *closeButtonText;
-@property (nonatomic, copy) RCTBubblingEventBlock onClose;
-@property (nonatomic, copy) NSString *testID;
+@property (nonatomic, copy) NSString *cancelButtonText;
+@property (nonatomic, copy) RCTBubblingEventBlock onCancel;
+
+@property (nonatomic, copy) NSString *doneButtonText;
+@property (nonatomic, copy) RCTBubblingEventBlock onDone;
 
 @end

@@ -27,10 +27,11 @@ interface UltraPickerIOSNative {
 }
 
 interface UltraPickerIOSCloseBarNative {
-    closeButtonText?: string
-    onClose?: (result: any) => void
-    style?: ViewStyle
-    buttonTestID?: string
+    cancelButtonText?: string,
+    onCancel?: (result: any) => void,
+    doneButtonText?: string,
+    onDone?: (result: any) => void,
+    style?: ViewStyle,
 }
 
 export interface ComponentGroup {
@@ -48,7 +49,7 @@ export interface ComponentItemProps {
 
 interface NativeGroup extends ComponentGroup {
     items?: ComponentItemProps[],
-} 
+}
 
 export class Group extends React.Component<ComponentGroup> {
     render() {
@@ -112,7 +113,7 @@ export class UltraPickerIOS extends React.Component<UltraPickerIOSProps, UltraPi
                 if (child.props.children) {
                     if (child.props.children.constructor === Array) {
                         items = child.props.children
-                    } else { 
+                    } else {
                         items = [child.props.children]
                     }
                     items.forEach((item, index) => {
@@ -151,10 +152,10 @@ export class UltraPickerIOS extends React.Component<UltraPickerIOSProps, UltraPi
     }
 
     render() {
-        // Allow the caller to not specify any style yet make this component visible 
+        // Allow the caller to not specify any style yet make this component visible
         // via default heights. Adjust the size of `parentViewStyle` so that if there
-        // is a CloseBar provided, the picker is the same size as specified by 
-        // UltraPickerIOS.style and the parent (encapsulating) view is made larger 
+        // is a CloseBar provided, the picker is the same size as specified by
+        // UltraPickerIOS.style and the parent (encapsulating) view is made larger
         // to fit the CloseBar
         let pickerViewStyle = {
             height: DEFAULT_PICKER_HEIGHT,
@@ -182,10 +183,11 @@ export class UltraPickerIOS extends React.Component<UltraPickerIOSProps, UltraPi
 }
 
 export interface UltraPickerIOSCloseBarProps {
-    closeButtonText?: string
-    onClose?: (result: any) => void
+    cancelButtonText?: string,
+    onCancel?: (result: any) => void,
+    doneButtonText?: string,
+    onDone?: (result: any) => void,
     style?: ViewStyle,
-    buttonTestID?: string
 }
 
 export class UltraPickerIOSCloseBar extends React.Component<UltraPickerIOSCloseBarProps> {
@@ -195,13 +197,15 @@ export class UltraPickerIOSCloseBar extends React.Component<UltraPickerIOSCloseB
             height: DEFAULT_CLOSEBAR_HEIGHT,
             ... StyleSheet.flatten(this.props.style)
         }
-        let closeButtonText = this.props.closeButtonText || "Close"
+        let cancelButtonText = this.props.cancelButtonText || "Cancel"
+        let doneButtonText = this.props.doneButtonText || "Done"
         return (
             <UltraPickerIOSCloseBarNative
                 style={style || this.props.style}
-                closeButtonText={closeButtonText}
-                onClose={this.props.onClose}
-                buttonTestID={this.props.buttonTestID}
+                cancelButtonText={cancelButtonText}
+                onCancel={this.props.onCancel}
+                doneButtonText={doneButtonText}
+                onDone={this.props.onDone}
             />
         )
     }
