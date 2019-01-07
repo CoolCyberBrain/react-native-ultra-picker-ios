@@ -104,7 +104,7 @@ var UltraPickerIOS = /** @class */ (function (_super) {
                                 fontFamily: item.props.fontFamily,
                                 fontSize: item.props.fontSize,
                                 value: (item.props.value || null),
-                                lightText: item.props.lightText ? "." : undefined
+                                useLightText: item.props.useLightText
                             };
                             group_1.push(nativeItem);
                             if (item.props.selected) {
@@ -117,7 +117,7 @@ var UltraPickerIOS = /** @class */ (function (_super) {
                             items: group_1,
                             fontFamily: child.props.fontFamily,
                             fontSize: child.props.fontSize,
-                            lightText: child.props.lightText ? "." : undefined
+                            useLightText: child.props.useLightText
                         };
                         components.push(nativeGroup);
                         selectedIndexes.push(groupSelectedItem_1);
