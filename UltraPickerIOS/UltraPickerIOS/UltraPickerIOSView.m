@@ -71,42 +71,51 @@ NSString const *UIPickerDefaultFontFamily = @"HelveticaNeue";
 }
 
 -(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-    
+
     UILabel *displayLabel;
-    
+
     if (view) {
         displayLabel = (UILabel *)view;
-    }else {
+    } else {
         displayLabel = [UILabel new];
         displayLabel.textAlignment = NSTextAlignmentCenter;
     }
-    
+
     NSString *fontName;
     NSInteger fontSize;
     UIFont *font = nil;
-    
+
     //Check for property on the Item first, then the Group
     NSString *itemFontFamily = [[[[self.componentsData objectAtIndex:component] valueForKey:@"items"] objectAtIndex:row] valueForKey:@"fontFamily"];
     NSString *itemFontSize = [[[[self.componentsData objectAtIndex:component] valueForKey:@"items"] objectAtIndex:row] valueForKey:@"fontSize"];
-    
+
     if (itemFontFamily != nil || itemFontSize != nil) {
         fontName = itemFontFamily ?: UIPickerDefaultFontFamily;
         fontSize = itemFontSize.integerValue > 0 ? itemFontSize.integerValue : UIPickerDefaultFontSize;
-    }else {
+    } else {
         NSString *groupFontFamily = [[self.componentsData objectAtIndex:component] valueForKey:@"fontFamily"];
         NSString *groupFontSize = [[self.componentsData objectAtIndex:component] valueForKey:@"fontSize"];
         fontName = groupFontFamily ?: UIPickerDefaultFontFamily;
         fontSize = groupFontSize.integerValue > 0 ? groupFontSize.integerValue : UIPickerDefaultFontSize;
     }
-    
+
     font = [UIFont fontWithName:fontName size:fontSize];
 
     if (font) {
         displayLabel.font = font;
     }
-    
+
     displayLabel.text = [self labelForRow:row forComponent:component];
-    
+
+    NSString *itemTextColor = [[[[self.componentsData objectAtIndex:component] valueForKey:@"items"] objectAtIndex:row] valueForKey:@"lightText"];
+
+    if (itemTextColor != nil) {
+      displayLabel.textColor = itemTextColor ? [NSColor whiteColor] : [NSColor blackColor];
+    } else {
+      NSString *groupTextColor = [[self.componentsData objectAtIndex:component] valueForKey:@"lightText"];
+      displayLabel.textColor = groupTextColor ? [NSColor whiteColor] : [NSColor blackColor];
+    }
+
     return displayLabel;
 }
 
@@ -128,7 +137,7 @@ NSString const *UIPickerDefaultFontFamily = @"HelveticaNeue";
                             @"newValue": [self valueForRow:row forComponent:component],
                             @"newLabel": [self labelForRow:row forComponent:component]
                             };
-    
+
     if (self.onChange) {
         self.onChange(event);
     }

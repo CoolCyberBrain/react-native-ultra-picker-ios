@@ -3,6 +3,7 @@ import { ViewStyle } from 'react-native';
 export interface ComponentGroup {
     fontFamily?: string;
     fontSize?: string;
+    lightText?: string;
 }
 export interface ComponentItemProps {
     label: string;
@@ -10,6 +11,7 @@ export interface ComponentItemProps {
     selected?: boolean;
     fontFamily?: string;
     fontSize?: string;
+    lightText?: string;
 }
 export declare class Group extends React.Component<ComponentGroup> {
     render(): any;
