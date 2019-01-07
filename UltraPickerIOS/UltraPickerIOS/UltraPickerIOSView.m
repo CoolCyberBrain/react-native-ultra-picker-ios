@@ -111,9 +111,9 @@ NSString const *UIPickerDefaultFontFamily = @"HelveticaNeue";
     NSNumber *groupTextColor = [[self.componentsData objectAtIndex:component] valueForKey:@"useLightText"];
 
     if (itemTextColor != nil && [itemTextColor boolValue]) {
-      displayLabel.textColor = [itemTextColor boolValue] ? [UIColor whiteColor] : [UIColor blackColor];
+        displayLabel.textColor = [UIColor whiteColor];
     } else if (groupTextColor != nil && [groupTextColor boolValue]) {
-      displayLabel.textColor = [groupTextColor boolValue] ? [UIColor whiteColor] : [UIColor blackColor];
+        displayLabel.textColor = [UIColor whiteColor];
     }
 
     return displayLabel;
