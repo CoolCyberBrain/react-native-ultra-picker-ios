@@ -107,12 +107,12 @@ NSString const *UIPickerDefaultFontFamily = @"HelveticaNeue";
 
     displayLabel.text = [self labelForRow:row forComponent:component];
 
-    NSString *itemTextColor = [[[[self.componentsData objectAtIndex:component] valueForKey:@"items"] objectAtIndex:row] valueForKey:@"lightText"];
+    NSString *itemTextColor = [[[[self.componentsData objectAtIndex:component] valueForKey:@"items"] objectAtIndex:row] valueForKey:@"useLightText"];
 
     if (itemTextColor != nil) {
       displayLabel.textColor = itemTextColor ? [UIColor whiteColor] : [UIColor blackColor];
     } else {
-      NSString *groupTextColor = [[self.componentsData objectAtIndex:component] valueForKey:@"lightText"];
+      NSString *groupTextColor = [[self.componentsData objectAtIndex:component] valueForKey:@"useLightText"];
       displayLabel.textColor = groupTextColor ? [UIColor whiteColor] : [UIColor blackColor];
     }
 

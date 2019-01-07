@@ -37,7 +37,7 @@ interface UltraPickerIOSCloseBarNative {
 export interface ComponentGroup {
     fontFamily?: string,
     fontSize?: string,
-    lightText?: string,
+    useLightText?: string,
 }
 
 export interface ComponentItemProps {
@@ -46,7 +46,7 @@ export interface ComponentItemProps {
     selected?: boolean,
     fontFamily?: string,
     fontSize?: string,
-    lightText?: string,
+    useLightText?: string,
 }
 
 interface NativeGroup extends ComponentGroup {
@@ -125,7 +125,7 @@ export class UltraPickerIOS extends React.Component<UltraPickerIOSProps, UltraPi
                                 fontFamily: item.props.fontFamily,
                                 fontSize: item.props.fontSize,
                                 value: (item.props.value || null),
-                                lightText: item.props.lightText ? "." : undefined
+                                useLightText: item.props.useLightText ? "." : undefined
                             }
                             group.push(nativeItem)
                             if (item.props.selected) {
@@ -138,7 +138,7 @@ export class UltraPickerIOS extends React.Component<UltraPickerIOSProps, UltraPi
                             items: group,
                             fontFamily: child.props.fontFamily,
                             fontSize: child.props.fontSize,
-                            lightText: child.props.lightText ? "." : undefined
+                            useLightText: child.props.useLightText ? "." : undefined
                         }
                         components.push(nativeGroup)
                         selectedIndexes.push(groupSelectedItem)
