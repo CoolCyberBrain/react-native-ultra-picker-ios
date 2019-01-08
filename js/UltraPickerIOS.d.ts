@@ -31,6 +31,7 @@ export interface UltraPickerIOSState {
 }
 export declare class UltraPickerIOS extends React.Component<UltraPickerIOSProps, UltraPickerIOSState> {
     constructor(props: any);
+    componentDidMount(): void;
     _stateBasedOnProps(nextProps: any): UltraPickerIOSState;
     componentWillReceiveProps(nextProps: any): void;
     render(): JSX.Element;
