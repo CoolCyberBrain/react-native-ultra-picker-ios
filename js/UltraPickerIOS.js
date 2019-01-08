@@ -59,6 +59,7 @@ var UltraPickerIOS = /** @class */ (function (_super) {
         var _this = _super.call(this, props) || this;
         _this._stateBasedOnProps.bind(_this);
         _this.state = _this._stateBasedOnProps(props);
+        _this.setState(_this._stateBasedOnProps(props));
         return _this;
     }
     UltraPickerIOS.prototype._stateBasedOnProps = function (nextProps) {
