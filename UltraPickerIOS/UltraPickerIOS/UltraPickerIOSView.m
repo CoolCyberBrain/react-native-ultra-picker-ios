@@ -23,6 +23,8 @@ NSString const *UIPickerDefaultFontFamily = @"HelveticaNeue";
         _componentsData = [componentsData copy];
         [self setNeedsLayout];
     }
+
+    [self setSelectedIndexes: _selectedIndexes];
 }
 
 - (void) setSelectedIndexes:(NSArray<NSNumber *> *)selectedIndexes

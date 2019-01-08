@@ -61,9 +61,6 @@ var UltraPickerIOS = /** @class */ (function (_super) {
         _this.state = _this._stateBasedOnProps(__assign({}, props, { selectedIndexes: null }));
         return _this;
     }
-    UltraPickerIOS.prototype.componentDidMount = function () {
-        this.setState(this._stateBasedOnProps(this.props));
-    };
     UltraPickerIOS.prototype._stateBasedOnProps = function (nextProps) {
         var nextState = {
             componentsData: null,

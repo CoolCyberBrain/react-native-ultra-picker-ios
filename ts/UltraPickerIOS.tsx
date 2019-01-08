@@ -85,10 +85,6 @@ export class UltraPickerIOS extends React.Component<UltraPickerIOSProps, UltraPi
         this.state = this._stateBasedOnProps({...props, selectedIndexes: null})
     }
 
-    componentDidMount() {
-      this.setState(this._stateBasedOnProps(this.props))
-    }
-
     _stateBasedOnProps(nextProps): UltraPickerIOSState {
         let nextState = {
             componentsData: null,
