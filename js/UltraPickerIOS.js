@@ -58,7 +58,7 @@ var UltraPickerIOS = /** @class */ (function (_super) {
     function UltraPickerIOS(props) {
         var _this = _super.call(this, props) || this;
         _this._stateBasedOnProps.bind(_this);
-        _this.state = _this._stateBasedOnProps(props);
+        _this.state = _this._stateBasedOnProps(__assign({}, props, { selectedIndexes: null }));
         return _this;
     }
     UltraPickerIOS.prototype.componentDidMount = function () {
