@@ -24,10 +24,5 @@
     "react-native": "^0.48.1",
     "typescript": "^2.7"
   },
-  "files": [
-    "js",
-    "ts",
-    "UltraPickerIOS"
-  ],
   "license": "MIT"
 }
