@@ -3,7 +3,8 @@ module.exports = {
     platforms: {
       android: null,
       ios: {
-        project: "./UltraPickerIOS/UltraPickerIOS.xcodeproj"
+        project: "./UltraPickerIOS/UltraPickerIOS.xcodeproj",
+        podspecPath: "./UltraPickerIOS.podspec"
       }
     }
   }
