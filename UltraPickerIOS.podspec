@@ -1,17 +1,13 @@
-require 'json'
-
-package = JSON.parse(File.read(File.join(__dir__, '/package.json')))
-
 Pod::Spec.new do |s|
-  s.name         = package['name']
-  s.version      = package['version']
-  s.summary      = package['description']
-  s.license      = package['license']
+  s.name         = "UltraPickerIOS"
+  s.version      = "1.0.0"
+  s.summary      = "UltraPickerIOS"
+  s.license      = "private"
 
-  s.authors      = package['author']
-  s.homepage     = package['homepage']
+  s.authors      = { "author" => "author@domain.com" }
+  s.homepage     = "https://github.com/CoolCyberBrain/react-native-ultra-picker-ios"
 
-  s.description  = package['description']
+  s.description  = "UltraPickerIOS"
   s.platform     = :ios, "9.0"
 
   s.source       = { :git => "https://github.com/CoolCyberBrain/react-native-ultra-picker-ios.git", :tag => "master" }
