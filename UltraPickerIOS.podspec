@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "9.0"
 
   s.source       = { :git => "https://github.com/CoolCyberBrain/react-native-ultra-picker-ios.git", :tag => "master" }
-  s.source_files  = "UltraPickerIOS/**/*.{h,m}"
+  s.source_files  = "ios/**/*.{h,m}"
   s.requires_arc = true
 
   s.dependency "React"
